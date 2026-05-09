@@ -38,7 +38,7 @@ pipeline {
                 sh 'kubectl apply -f k8s/'
             }
         }
-        stage('expose port'){
+        stage('expose port for accessing'){
             steps {
     sh '''
     kubectl rollout status deployment/webapp-deployment --timeout=120s
