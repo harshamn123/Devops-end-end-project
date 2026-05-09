@@ -38,5 +38,10 @@ pipeline {
                 sh 'kubectl apply -f k8s/'
             }
         }
+        stage('expose port'){
+            steps{
+                sh 'kubectl port-forward service/webapp-service 9090:8080 --address 0.0.0.0'
+        }
     }
+}
 }
